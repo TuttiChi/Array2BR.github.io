@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Array2BR: An End-to-End Noise-immune Binaural Audio Synthesis from Microphone-array Signals</title>
+    <link rel="stylesheet" type="text/css" href="../../stylesheet.css"/>
+    <style>
+        /* 全局渐变背景效果 */
+        body {
+            background: linear-gradient(45deg, #f3f4f6, #ffffff);
+            background-size: 200% 200%;
+            animation: gradient 10s ease infinite;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 标题和内容样式 */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .audio-table {
+            width: 100%;
+            margin: 20px 0;
+            border-collapse: collapse;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .audio-table.visible {
+            opacity: 1;
+        }
+
+        .audio-table td {
+            padding: 10px;
+            vertical-align: top;
+            border-right: 2px solid #ddd;
+        }
+
+        .audio-table td:last-child {
+            border-right: none;
+        }
+
+        .audio-table tr {
+            border-bottom: 2px solid #ddd;
+        }
+
+        .audio-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .audio-table img {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+        }
+
+        .audio-table audio {
+            width: 100%;
+        }
+
+        /* 按钮样式和动画 */
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* 滚动触发的动画 */
+        @keyframes slide-up {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .scroll-animation {
+            opacity: 0;
+        }
+
+        .scroll-animation.visible {
+            animation: slide-up 1s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <div style="text-align:center">
+                <h1>Array2BR: An End-to-End Noise-immune Binaural Audio Synthesis from Microphone-array Signals</h1>
+                <div style="text-align:center">
+                    <h2>Cheng Chi<sup>1, 2</sup>, Xiaoyu Li<sup>1, 3</sup>, Andong Li<sup>1</sup>, Yuxuan Ke<sup>1</sup>, Xiaodong Li<sup>1, 2</sup>, Chengshi Zheng<sup>1, 2</sup></h2>
+                    <p><sup>1</sup> Key Laboratory of Noise and Vibration Research, Institute of Acoustics, Chinese Academy of Sciences, Beijing, China</p>
+                    <p><sup>2</sup> University of Chinese Academy of Sciences, Beijing, China</p>
+                    <p><sup>3</sup> Communication University of China, Beijing, China</p>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div style="margin-right: auto; margin-left: auto; margin-top: 30px; margin-bottom: 100px; width: 70%;">
+        <div>
+            <b>Abstract:</b> Telepresence technology aims to provide an immersive virtual presence for remote conference applications, and it is extremely important to synthesize high-quality binaural audio signals for this aim. Because the ambient noise is often inevitable in practical application scenarios, it is highly desired that binaural audio signals without noise can be obtained from microphone-array signals directly. For this purpose, this paper proposes a new end-to-end noise-immune binaural audio synthesis framework from microphone-array signals, abbreviated as Array2BR, and experimental results show that binaural cues can be correctly mapped and noise can be well suppressed simultaneously using the proposed framework. Compared with existing methods, the proposed method achieved better performance in terms of both objective and subjective metric scores.
+        </div>
+        <hr align="left" width="92%" />
+        <div style="display: flex; justify-content: space-between; align-items: stretch;">
+            <div style="flex: 1; margin-right: 10px; display: flex; flex-direction: column; align-items: center;">
+                <b>Note: the configurations of the room</b>
+                <div style="text-align: left;">
+                    <img src="./RoomA6Mic.png" style="width: 300px; height: 100%; object-fit: cover;" />
+                </div>
+                <hr align="left" width="30%" />
+            </div>
+            <div style="flex: 1; margin-left: 10px; display: flex; flex-direction: column; align-items: center;">
+                <b>Note: the structure of the Array2BR</b>
+                <div style="text-align: left;">
+                    <img src="./netWorkNew0908-1.png" style="max-width: 600px; height: 100%; object-fit: cover;" />
+                </div>
+                <hr align="left" width="30%" />
+            </div>
+        </div>
+        
+        
+      
+      
+            <table class="audio-table scroll-animation">
+                <tr>
+                    <td>Audio Clip 1 (DOA = 270 degree, SNR = 0 dB)</td>
+                    <td>Audio Clip 2 (DOA = 300 degree, SNR = 5 dB)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>LBH</b><br>
+                        <audio src="LBH/LBH.wav" controls preload></audio><br>
+                        <b>MIF</b><br>
+                        <audio src="MIF/MIF.wav" controls preload></audio><br>
+                        <b>MDFnet</b><br>
+                        <audio src="MDFnet/MDRnet_0_1.wav" controls preload></audio><br>
+                        <b>Array2BR</b><br>
+                        <audio src="Array2BR/0_1.wav_timvdr.wav" controls preload></audio><br>
+                        <b>Target</b><br>
+                        <audio src="Target/0_1.wav" controls preload></audio>
+                    </td>
+                    <td>
+                        <b>LBH</b><br>
+                        <audio src="LBH/LBH.wav" controls preload></audio><br>
+                        <b>MIF</b><br>
+                        <audio src="MIF/MIF.wav" controls preload></audio><br>
+                        <b>MDFnet</b><br>
+                        <audio src="MDFnet/MDRnet_0_1.wav" controls preload></audio><br>
+                        <b>Array2BR</b><br>
+                        <audio src="Array2BR/0_1.wav_timvdr.wav" controls preload></audio><br>
+                        <b>Target</b><br>
+                        <audio src="Target/0_1.wav" controls preload></audio>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="audio-table scroll-animation">
+                <tr>
+                    <td>Audio Clip 3 (DOA = 90 degree, SNR = 10 dB)</td>
+                    <td>Audio Clip 4 (DOA = 60 degree, SNR = 15 dB)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>LBH</b><br>
+                        <audio src="LBH/LBH.wav" controls preload></audio><br>
+                        <b>MIF</b><br>
+                        <audio src="MIF/MIF.wav" controls preload></audio><br>
+                        <b>MDFnet</b><br>
+                        <audio src="MDFnet/MDRnet_0_1.wav" controls preload></audio><br>
+                        <b>Array2BR</b><br>
+                        <audio src="Array2BR/0_1.wav_timvdr.wav" controls preload></audio><br>
+                        <b>Target</b><br>
+                        <audio src="Target/0_1.wav" controls preload></audio>
+                    </td>
+                    <td>
+                        <b>LBH</b><br>
+                        <audio src="LBH/LBH.wav" controls preload></audio><br>
+                        <b>MIF</b><br>
+                        <audio src="MIF/MIF.wav" controls preload></audio><br>
+                        <b>MDFnet</b><br>
+                        <audio src="MDFnet/MDRnet_0_1.wav" controls preload></audio><br>
+                        <b>Array2BR</b><br>
+                        <audio src="Array2BR/0_1.wav_timvdr.wav" controls preload></audio><br>
+                        <b>Target</b><br>
+                        <audio src="Target/0_1.wav" controls preload></audio>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="audio-table scroll-animation">
+                <tr>
+                    <td>Audio Clip 5 (DOA = 270 degree, SNR = 20 dB)</td>
+                    <td>Audio Clip 6 (DOA = 0 degree, SNR = 25 dB)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>LBH</b><br>
+                        <audio src="LBH/LBH.wav" controls preload></audio><br>
+                        <b>MIF</b><br>
+                        <audio src="MIF/MIF.wav" controls preload></audio><br>
+                        <b>MDFnet</b><br>
+                        <audio src="MDFnet/MDRnet_0_1.wav" controls preload></audio><br>
+                        <b>Array2BR</b><br>
+                        <audio src="Array2BR/0_1.wav_timvdr.wav" controls preload></audio><br>
+                        <b>Target</b><br>
+                        <audio src="Target/0_1.wav" controls preload></audio>
+                    </td>
+                    <td>
+                        <b>LBH</b><br>
+                        <audio src="LBH/LBH.wav" controls preload></audio><br>
+                        <b>MIF</b><br>
+                        <audio src="MIF/MIF.wav" controls preload></audio><br>
+                        <b>MDFnet</b><br>
+                        <audio src="MDFnet/MDRnet_0_1.wav" controls preload></audio><br>
+                        <b>Array2BR</b><br>
+                        <audio src="Array2BR/0_1.wav_timvdr.wav" controls preload></audio><br>
+                        <b>Target</b><br>
+                        <audio src="Target/0_1.wav" controls preload></audio>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- 这里添加更多表格 -->
+        </div>
+    </div>
+
+    <script>
+        // 检测元素是否进入视口并添加 'visible' 类
+        function handleScroll() {
+            const elements = document.querySelectorAll('.scroll-animation');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+                if (rect.top <= viewHeight && rect.bottom >= 0) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        // 初始化时处理一次
+        handleScroll();
+
+        // 监听滚动事件
+        window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>
