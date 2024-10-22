@@ -109,10 +109,11 @@
 
         /* 定义居中和字体大小 */
         #busuanzi_container_site_pv {
+            display: block; /* 将span转换为块元素，方便居中 */
             text-align: center; /* 居中显示 */
             font-size: 12px; /* 字体较小 */
-            margin-top: 20px; /* 上边距，保证和上面的内容有些距离 */
-            color: #666; /* 字体颜色 */
+            color: #666; /* 字体颜色，可以根据需要更改 */
+            margin-top: 20px; /* 添加上边距以与页面内容保持距离 */
         }
     </style>
 </head>
@@ -256,12 +257,10 @@
             </table>
 
             <!-- 这里添加更多表格 -->
-                <!-- 底部统计信息 -->
-        <div id="busuanzi_container_site_pv">
-            Total site visits: <span id="busuanzi_value_site_pv"></span> times<br>
-            Total site visitors: <span id="busuanzi_value_site_uv"></span> people<br>
-            Total page views: <span id="busuanzi_value_page_pv"></span> times
-        </div>
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv">
+                Total site visits:<span id="busuanzi_value_site_pv"></span> times.
+            </span>
         </div>
     </div>
 
