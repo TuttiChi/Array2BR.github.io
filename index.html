@@ -106,6 +106,14 @@
         .scroll-animation.visible {
             animation: slide-up 1s ease-out forwards;
         }
+
+        /* 定义居中和字体大小 */
+        #busuanzi_container_site_pv {
+            text-align: center; /* 居中显示 */
+            font-size: 12px; /* 字体较小 */
+            margin-top: 20px; /* 上边距，保证和上面的内容有些距离 */
+            color: #666; /* 字体颜色 */
+        }
     </style>
 </head>
 <body>
@@ -134,14 +142,14 @@
                 <div style="text-align: left;">
                     <img src="./RoomA6Mic.png" style="width: 300px; height: 100%; object-fit: cover;" />
                 </div>
-                <hr align="left" width="30%" />
+                <!-- <hr align="left" width="30%" /> -->
             </div>
             <div style="flex: 1; margin-left: 10px; display: flex; flex-direction: column; align-items: center;">
                 <b>Note: the structure of the Array2BR</b>
                 <div style="text-align: left;">
                     <img src="./netWorkNew0908-1.png" style="max-width: 600px; height: 100%; object-fit: cover;" />
                 </div>
-                <hr align="left" width="30%" />
+                <!-- <hr align="left" width="30%" /> -->
             </div>
         </div>
         
@@ -248,6 +256,12 @@
             </table>
 
             <!-- 这里添加更多表格 -->
+                <!-- 底部统计信息 -->
+        <div id="busuanzi_container_site_pv">
+            Total site visits: <span id="busuanzi_value_site_pv"></span> times<br>
+            Total site visitors: <span id="busuanzi_value_site_uv"></span> people<br>
+            Total page views: <span id="busuanzi_value_page_pv"></span> times
+        </div>
         </div>
     </div>
 
